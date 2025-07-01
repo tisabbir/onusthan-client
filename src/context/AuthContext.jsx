@@ -15,7 +15,7 @@ const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     try {
       setLoading(true);
-      const res = await fetch("<http://localhost:10000/api/login>", {
+      const res = await fetch("https://onusthan-server.onrender.com/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -42,7 +42,7 @@ const AuthProvider = ({ children }) => {
   const register = async (name, email, password, photoURL) => {
     try {
       setLoading(true);
-      const res = await fetch("<http://localhost:10000/api/register>", {
+      const res = await fetch("https://onusthan-server.onrender.com/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password, photoURL }),
