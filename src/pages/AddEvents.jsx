@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Calendar, MapPin, User, Clock, FileText, Users } from "lucide-react";
 import Navbar from "../components/Navbar";
-const token = localStorage.getItem("token");
+
 
 const AddEvent = () => {
   const [formData, setFormData] = useState({
@@ -31,6 +31,7 @@ const AddEvent = () => {
     e.preventDefault();
     setLoading(true);
     setMessage("");
+    const token = localStorage.getItem("token");
 
     try {
       const response = await fetch(
@@ -41,7 +42,10 @@ const AddEvent = () => {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify({
+            ...formData,
+            dateTime: `${formData.date}T${formData.time}`,
+          }),
         }
       );
 

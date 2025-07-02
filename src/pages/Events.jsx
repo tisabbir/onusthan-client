@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Calendar, MapPin, Users, Clock, Search } from 'lucide-react';
 import Navbar from '../components/Navbar';
 
-const API = "https://onusthan-server.onrender.com/api/myevents";
+const API = "https://onusthan-server.onrender.com/api/events";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
